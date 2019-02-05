@@ -1,10 +1,10 @@
 <?php
-$is_auth = rand(0, 1);
+    $is_auth = rand(0, 1);
 
-$user_name = 'Федор';
-?>
-<?php $main = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"]; ?>
-<?php
+    $user_name = 'Федор';
+
+    $main = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
+
     $item = [
         [
             "name" => "2014 Rossignol District Snowboard",
@@ -43,7 +43,12 @@ $user_name = 'Федор';
             "url" => "img/lot-6.jpg"
         ]
     ];
+
+    function price($num) {
+        return number_format(ceil($num), 0, '.', ' ');
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -115,7 +120,9 @@ $user_name = 'Федор';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$value["price"]; ?><b class="rub">р</b></span>
+
+                            <span class="lot__cost"><?=price($value["price"]) ?><b class="rub">р</b></span>
+
                         </div>
                         <div class="lot__timer timer">
                             12:23
