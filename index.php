@@ -1,10 +1,10 @@
 <?php
-$is_auth = rand(0, 1);
+    $is_auth = rand(0, 1);
 
-$user_name = 'Федор';
-?>
-<?php $main = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"]; ?>
-<?php
+    $user_name = 'Федор';
+
+    $main = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
+
     $item = [
         [
             "name" => "2014 Rossignol District Snowboard",
@@ -43,13 +43,12 @@ $user_name = 'Федор';
             "url" => "img/lot-6.jpg"
         ]
     ];
-?>
 
-<?php
     function price($num) {
         return number_format(ceil($num), 0, '.', ' ');
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ru">
