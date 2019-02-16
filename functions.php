@@ -19,4 +19,8 @@ function include_template($name, $data) {
 function price($num) {
     return number_format(ceil($num), 0, '.', ' ');
 }
-?>
+
+function dateDiff() {
+    $diff = strtotime('tomorrow midnight') - time();
+    return date('H:i',$diff);
+}

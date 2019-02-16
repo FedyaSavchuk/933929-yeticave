@@ -30,7 +30,7 @@
 
                     </div>
                     <div class="lot__timer timer">
-                        12:23
+                        <?=$dateDiff ?>
                     </div>
                 </div>
             </div>
