@@ -4,7 +4,6 @@
     $is_auth = rand(0, 1);
 
     $user_name = 'Федор';
-
     $category = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
 
     $item = [
@@ -49,7 +48,7 @@
         $main = include_template(
             'index.php',
             [
-                'category' => $category, 
+                'category' => $category,
                 'item' => $item
             ]
         );
@@ -64,3 +63,4 @@
             ]
         );
         echo $layout;
+?>
