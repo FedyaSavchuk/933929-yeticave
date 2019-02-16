@@ -49,7 +49,8 @@
             'index.php',
             [
                 'category' => $category,
-                'item' => $item
+                'item' => $item,
+                'dateDiff' => dateDiff()
             ]
         );
         $layout = include_template(
