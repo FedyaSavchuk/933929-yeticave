@@ -14,10 +14,13 @@ CREATE TABLE lot (
     first_price         INT,
     date_finish         DATETIME,
     bid_step            INT,
-
     user_id             INT,
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
     category_id         INT,
+    FOREIGN KEY (category_id) REFERENCES user(category_id);
     winner_id           INT
+    -- Вот тут не знаю... У нас эе user_id уже есть.
+
 );
 
 
@@ -25,9 +28,10 @@ CREATE TABLE bid (
     bid_id              INT AUTO_INCREMENT PRIMARY KEY,
     bid_date            DATETIME,
     sum                 INT,
-
     user_id             INT,
-    lot_id              INT
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    lot_id              INT,
+    FOREIGN KEY (lot_id) REFERENCES user(lot_id)
 );
 
 
@@ -39,9 +43,10 @@ CREATE TABLE user (
     password            CHAR(64),
     avatar              CHAR(255),
     contact             CHAR(255) UNIQUE
-
     lot_id              INT,
-    bid_id              INT
+    FOREIGN KEY (lot_id) REFERENCES user(lot_id),
+    bid_id              INT,
+    FOREIGN KEY (bid_id) REFERENCES user(bid_id)
 );
 
 
@@ -51,20 +56,3 @@ CREATE INDEX lot_name ON lot(lot_name);
 CREATE INDEX date_finish ON lot(date_finish);
 
 CREATE INDEX sum ON bid(sum);
-
-
--- Делаю связи
-ALTER TABLE lot
-ADD FOREIGN KEY (user_id) REFERENCES user(user_id);
-ALTER TABLE lot
-ADD FOREIGN KEY (category_id) REFERENCES user(category_id);
-
-ALTER TABLE bid
-ADD FOREIGN KEY (user_id) REFERENCES user(user_id);
-ALTER TABLE bid
-ADD FOREIGN KEY (lot_id) REFERENCES user(lot_id);
-
-ALTER TABLE user
-ADD FOREIGN KEY (bid_id) REFERENCES user(bid_id);
-ALTER TABLE user
-ADD FOREIGN KEY (lot_id) REFERENCES user(lot_id);
