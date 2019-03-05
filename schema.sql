@@ -7,12 +7,12 @@ CREATE TABLE categories (
 
 CREATE TABLE lot (
     lot_id              INT AUTO_INCREMENT PRIMARY KEY,
-    date_start          DATETIME,
+    date_start          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     lot_name            CHAR(255),
     lot_description     TEXT,
     lot_img             CHAR(255),
     first_price         INT,
-    date_finish         DATETIME,
+    date_finish         TIMESTAMP,
     bid_step            INT,
     user_id             INT,
     FOREIGN KEY (user_id) REFERENCES user(user_id),
@@ -26,7 +26,7 @@ CREATE TABLE lot (
 
 CREATE TABLE bid (
     bid_id              INT AUTO_INCREMENT PRIMARY KEY,
-    bid_date            DATETIME,
+    bid_date            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     sum                 INT,
     user_id             INT,
     FOREIGN KEY (user_id) REFERENCES user(user_id),
@@ -36,8 +36,8 @@ CREATE TABLE bid (
 
 
 CREATE TABLE user (
-    user_id             INT AUTO_INCREMENT PRIMARY KEY, --Внешний ключ для creator_id
-    registration_date   DATETIME,
+    user_id             INT AUTO_INCREMENT PRIMARY KEY,
+    registration_date   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     email               CHAR(255) UNIQUE,
     user_name           CHAR(255),
     password            CHAR(64),
