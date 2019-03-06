@@ -43,6 +43,6 @@ WHERE lot_id = 2;
 
 -- Получить список (10) самых свежих ставок для лота по его идентификатору;
 SELECT sum FROM bid
-ORDER BY sum DESC
+ORDER BY bid_date DESC
 WHERE lot_id = 1
 LIMIT 10;
