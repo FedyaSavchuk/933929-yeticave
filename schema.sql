@@ -43,7 +43,6 @@ CREATE TABLE user (
     password            CHAR(64),
     avatar              CHAR(255),
     contact             CHAR(255) UNIQUE
-
     lot_id              INT,
     FOREIGN KEY (lot_id) REFERENCES user(lot_id),
     bid_id              INT,
