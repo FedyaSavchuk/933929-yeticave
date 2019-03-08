@@ -2,6 +2,7 @@
     <h2 class="promo__title">Нужен стафф для катки?</h2>
     <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
     <ul class="promo__list">
+        <!-- Перебрать массив категории и написать туда значения из массива -->
         <?php foreach ($category as $value): ?>
         <li class="promo__item promo__item--boards">
             <a class="promo__link" href="pages/all-lots.html"><?=$value;?></a>
@@ -17,7 +18,7 @@
         <?php foreach ($item as $key => $value): ?>
         <li class="lots__item lot">
             <div class="lot__image">
-                <img src="<?=$value["url"]; ?>" width="350" height="260" alt="">
+                <img src="<?=$value["lot_img"]; ?>" width="350" height="260" alt="">
             </div>
             <div class="lot__info">
                 <span class="lot__category"><?=$value["category"]; ?></span>
